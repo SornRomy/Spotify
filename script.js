@@ -10,16 +10,17 @@ let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
-    {songName: "Warriyo - Mortals [NCS Release]", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
-    {songName: "មួយទៅមួយ", filePath: "songs/Tep Piseth - មយទមយ ft. Ruthko.mp3", coverPath: "covers/piset.jpg"},
+    {songName: "Warriyo-Mortals", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
+    {songName: "មួយទៅមួយ", filePath: "songs/2.mp3", coverPath: "covers/piset.jpg"},
     {songName: "Again and Again", filePath: "songs/3.mp3", coverPath: "covers/huuhai.jpg"},
     {songName: "J+O [Remix]", filePath: "songs/4.mp3", coverPath: "covers/vannda.jpg"},
     {songName: "AH TOUR", filePath: "songs/5.mp3", coverPath: "covers/gmangz.jpg"},
-    {songName: "Rabba - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
-    {songName: "Sakhiyaan - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/7.jpg"},
-    {songName: "Bhula Dena - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
-    {songName: "Tumhari Kasam - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
-    {songName: "Na Jaana - Salam-e-Ishq", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
+    {songName: "Low-Low", filePath: "songs/6.mp3", coverPath: "covers/flo.jpg"},
+    {songName: "Boom, Shake, Drop", filePath: "songs/7.mp3", coverPath: "covers/flo.jpg"},
+    {songName: "Lady Gaga", filePath: "songs/8.mp3", coverPath: "covers/Bruno-000000-80-0-0.jpg"},
+    {songName: "9mm", filePath: "songs/9.mp3", coverPath: "covers/SEav.jpg"}, 
+    {songName: "Chanavinlyna", filePath: "songs/10.mp3", coverPath: "covers/sachdom.jpg"},
+    
 ]
 
 songItems.forEach((element, i)=>{ 
@@ -108,19 +109,5 @@ document.getElementById('previous').addEventListener('click', ()=>{
     masterPlay.classList.add('fa-pause-circle');
 })
 
-document.getElementById('next').addEventListener('click', ()=>{
-    if(songIndex<=1){
-        songIndex = 0
-    }
-    else{
-        songIndex = 1; 
-    }
-     audioElement.src = `songs/${songIndex+1}.mp3`;
-     masterSongName.innerText = songs[songIndex].songName;
-     audioElement.currentTime = 0 ;
-     audioElement.play();
-     masterPlay.classList.remove('fa-play-circle');
-     masterPlay.classList.add('fa-pause-circle');
-})
 
 
