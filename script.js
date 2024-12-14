@@ -109,5 +109,34 @@ document.getElementById('previous').addEventListener('click', ()=>{
     masterPlay.classList.add('fa-pause-circle');
 })
 
+//
+
+// function aotuplay
+
+audioElement.addEventListener('ended', () => {
+    if (songIndex >= songs.length - 1) {
+        songIndex = 0; // Loop back to the first song
+    } else {
+        songIndex += 1; // Move to the next song
+    }
+    audioElement.src = `songs/${songIndex + 1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    gif.style.opacity = 1;
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+    makeAllPlays(); // Reset all play icons
+    document.getElementById(songIndex).classList.remove('fa-play-circle');
+    document.getElementById(songIndex).classList.add('fa-pause-circle');
+});
+
+// function aotuplay
 
 
+
+// Rotate 
+
+
+
+// Rotate 
