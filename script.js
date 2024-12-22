@@ -10,14 +10,14 @@ let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
-    {songName: "Warriyo-Mortals", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
+    {songName: "ឱក្រមុំមុំបងអើយ", filePath: "songs/1.mp3", coverPath: "covers/piset.jpg"},
     {songName: "មួយទៅមួយ", filePath: "songs/2.mp3", coverPath: "covers/piset.jpg"},
     {songName: "Again and Again", filePath: "songs/3.mp3", coverPath: "covers/huuhai.jpg"},
     {songName: "J+O [Remix]", filePath: "songs/4.mp3", coverPath: "covers/vannda.jpg"},
     {songName: "AH TOUR", filePath: "songs/5.mp3", coverPath: "covers/gmangz.jpg"},
     {songName: "Low-Low", filePath: "songs/6.mp3", coverPath: "covers/flo.jpg"},
     {songName: "Boom, Shake, Drop", filePath: "songs/7.mp3", coverPath: "covers/flo.jpg"},
-    {songName: "Lady Gaga", filePath: "songs/8.mp3", coverPath: "covers/Bruno-000000-80-0-0.jpg"},
+    {songName: "Die With A Smile", filePath: "songs/8.mp3", coverPath: "covers/Bruno-000000-80-0-0.jpg"},
     {songName: "9mm", filePath: "songs/9.mp3", coverPath: "covers/SEav.jpg"}, 
     {songName: "Chanavinlyna", filePath: "songs/10.mp3", coverPath: "covers/sachdom.jpg"},
     
@@ -35,6 +35,7 @@ masterPlay.addEventListener('click', ()=>{
         audioElement.play();
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
+        
         gif.style.opacity = 1;
     }
     else{
@@ -72,9 +73,13 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         masterSongName.innerText = songs[songIndex].songName;
         audioElement.currentTime = 0;
         audioElement.play();
+        
         gif.style.opacity = 1;
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
+        makeAllPlays();
+        document.getElementById(songIndex).classList.add('fa-pause-circle');
+        document.getElementById(songIndex).classList.remove('fa-play-circle');
     })
 })
 
@@ -89,8 +94,10 @@ document.getElementById('next').addEventListener('click', ()=>{
     masterSongName.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
     audioElement.play();
-    masterPlay.classList.remove('fa-play-circle');
-    masterPlay.classList.add('fa-pause-circle');
+    makeAllPlays();
+    document.getElementById(songIndex).classList.add('fa-pause-circle');
+    document.getElementById(songIndex).classList.remove('fa-play-circle');
+    highlightPlayingSong(); // Highlight the new song
 
 })
 
@@ -105,8 +112,11 @@ document.getElementById('previous').addEventListener('click', ()=>{
     masterSongName.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
     audioElement.play();
-    masterPlay.classList.remove('fa-play-circle');
-    masterPlay.classList.add('fa-pause-circle');
+    makeAllPlays();
+    document.getElementById(songIndex).classList.remove('fa-play-circle');
+    document.getElementById(songIndex).classList.add('fa-pause-circle');
+    
+    highlightPlayingSong(); // Highlight the new song
 })
 
 //
@@ -129,6 +139,7 @@ audioElement.addEventListener('ended', () => {
     makeAllPlays(); // Reset all play icons
     document.getElementById(songIndex).classList.remove('fa-play-circle');
     document.getElementById(songIndex).classList.add('fa-pause-circle');
+    highlightPlayingSong(); // Highlight the new song
 });
 
 // function aotuplay
@@ -140,3 +151,82 @@ audioElement.addEventListener('ended', () => {
 
 
 // Rotate 
+
+
+
+// function active song
+
+const highlightPlayingSong = () => {
+    // Remove 'active' class from all songs
+    songItems.forEach((item) => {
+        item.classList.remove('active');
+    });
+    // Add 'active' class to the current song
+    songItems[songIndex].classList.add('active');
+};
+
+// function active song
+
+
+
+// function click on song in class songItem
+Array.from(document.getElementsByClassName('songItem')).forEach((element, index) => {
+    element.addEventListener('click', () => {
+        if (songIndex === index) {
+            // If the same song is clicked
+            if (audioElement.paused) {
+                audioElement.play();
+                gif.style.opacity = 1;
+                masterPlay.classList.remove('fa-play-circle');
+                masterPlay.classList.add('fa-pause-circle');
+                element.getElementsByClassName('songItemPlay')[0].classList.remove('fa-play-circle');
+                element.getElementsByClassName('songItemPlay')[0].classList.add('fa-pause-circle');
+            } else {
+                audioElement.pause();
+                gif.style.opacity = 0;
+                masterPlay.classList.remove('fa-pause-circle');
+                masterPlay.classList.add('fa-play-circle');
+                element.getElementsByClassName('songItemPlay')[0].classList.remove('fa-pause-circle');
+                element.getElementsByClassName('songItemPlay')[0].classList.add('fa-play-circle');
+            }
+        } else {
+            makeAllPlays();
+            songIndex = index;
+            audioElement.src = `songs/${songIndex + 1}.mp3`;
+            masterSongName.innerText = songs[songIndex].songName;
+            audioElement.currentTime = 0;
+            audioElement.play();
+            gif.style.opacity = 1;
+            masterPlay.classList.remove('fa-play-circle');
+            masterPlay.classList.add('fa-pause-circle');
+            element.getElementsByClassName('songItemPlay')[0].classList.remove('fa-play-circle');
+            element.getElementsByClassName('songItemPlay')[0].classList.add('fa-pause-circle');
+        }
+        highlightPlayingSong(); // Highlight the current song
+    });
+});
+
+
+// function click on song in class songItem
+
+
+// hide the icon fa-play-circle
+
+
+document.getElementById("0").style.display = "none";
+document.getElementById("1").style.display = "none";
+document.getElementById("2").style.display = "none";
+document.getElementById("3").style.display = "none";
+document.getElementById("4").style.display = "none";
+document.getElementById("5").style.display = "none";
+document.getElementById("6").style.display = "none";
+document.getElementById("7").style.display = "none";
+document.getElementById("8").style.display = "none";
+document.getElementById("9").style.display = "none";
+
+
+
+// hide the icon fa-play-circle
+
+
+

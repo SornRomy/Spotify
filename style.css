@@ -88,6 +88,7 @@ nav ul li{
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
+    cursor: pointer;
 }
 
 .songItem img{
@@ -115,15 +116,172 @@ nav ul li{
     transition: opacity 0.4s ease-in;
 }
 
+/* active song  */
 
-/* sss */
+.songItem.active {
+    /*background-color: #ff9800;  Highlight color */
+    background-color: #66f24d;
+    color: white; /* Text color for active item */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: add a shadow */
+    transform: scale(1.05); /* Slight zoom effect */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* active song  */
+
+/* New style */
+
+/* .songItem {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.songCover {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.songDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.songName {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.songArtist {
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.playButton {
+    font-size: 24px;
+    color: #1db954;
+}
+
+.timeDisplay {
+    font-size: 14px;
+    color: #b3b3b3;
+} */
 
 
-/* sss */
+
+/* New style */
+
+
+
+/* button chat */
+
+/* From Uiverse.io by MikeeMikee */ 
+.button {
+    cursor: pointer;
+    border: none;
+    background: #0088cc;
+    color: #fff;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-content: center;
+    transition:
+      background 300ms,
+      transform 200ms;
+    font-weight: 600;
+  }
+  
+  .button__text {
+    position: absolute;
+    inset: 0;
+    animation: text-rotation 8s linear infinite;
+  
+    > span {
+      position: absolute;
+      transform: rotate(calc(20deg * var(--index)));
+      inset: 1px;
+      font-size: 70%;
+    }
+  }
+  
+  .button__circle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background: #212121;
+    color: #0088cc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button__icon--copy {
+    position: absolute;
+    transform: translate(-150%, 150%);
+  }
+  
+  .button:hover {
+    background: #000;
+    transform: scale(1.05);
+  }
+  
+  .button:hover .button__icon {
+    color: #fff;
+  }
+  
+  .button:hover .button__icon:first-child {
+    transition: transform 0.3s ease-in-out;
+    transform: translate(150%, -150%);
+  }
+  
+  .button:hover .button__icon--copy {
+    transition: transform 0.3s ease-in-out 0.1s;
+    transform: translate(0);
+  }
+  
+  @keyframes text-rotation {
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  .button:active {
+    transform: scale(0.95);
+  }
+  
+
+
+/* button chat */
+
+
+
+
+
 
 @media only screen and (max-width: 1100px) {
     body {
-      background-color: red;
+      background-color: rgb(18, 227, 227);
     }
     .container{
         min-height: 72vh;
@@ -139,7 +297,7 @@ nav ul li{
     }
     .songItem{
         height: 60px;
-        width: 330px;
+        width: 320px;
         display: flex;
         background-color: white;
         
