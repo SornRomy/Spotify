@@ -18,7 +18,7 @@ let songs = [
     {songName: "Low-Low", filePath: "songs/6.mp3", coverPath: "covers/flo.jpg"},
     {songName: "Boom, Shake, Drop", filePath: "songs/7.mp3", coverPath: "covers/flo.jpg"},
     {songName: "Die With A Smile", filePath: "songs/8.mp3", coverPath: "covers/Bruno-000000-80-0-0.jpg"},
-    {songName: "9mm", filePath: "songs/9.mp3", coverPath: "covers/SEav.jpg"}, 
+    {songName: "The Gangster Luv Story", filePath: "songs/9.mp3", coverPath: "covers/4t5.jpg"}, 
     {songName: "Chanavinlyna", filePath: "songs/10.mp3", coverPath: "covers/sachdom.jpg"},
     
 ]
@@ -37,12 +37,14 @@ masterPlay.addEventListener('click', ()=>{
         masterPlay.classList.add('fa-pause-circle');
         
         gif.style.opacity = 1;
+        highlightPlayingSong(); // Highlight the new song
     }
     else{
         audioElement.pause();
         masterPlay.classList.remove('fa-pause-circle');
         masterPlay.classList.add('fa-play-circle');
         gif.style.opacity = 0;
+        highlightPlayingSong(); // Highlight the new song
     }
 })
 // Listen to Events

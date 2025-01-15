@@ -7,6 +7,7 @@
     <title>SornRomy - Music</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="Shortcut icon" href="music.png" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
   </head>
   <body>
     <nav>
@@ -78,7 +79,7 @@
             <img alt="1" />
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
-              ><span class="timestamp"
+              ><span class="timestamp" id="countdown"
                 >01:12
                 <i id="0" class="far songItemPlay fa-play-circle"></i> </span
             ></span>
@@ -152,7 +153,7 @@
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
-                >03:42
+                >04:52
                 <i id="8" class="far songItemPlay fa-play-circle"></i> </span
             ></span>
           </div>
@@ -170,7 +171,11 @@
       <div class="songBanner"></div>
     </div>
 
-    <div class="bottom">
+
+<!-- bb -->
+
+
+    <div class="bottom" >
       <input
         type="range"
         name="range"
@@ -179,18 +184,25 @@
         value="0"
         max="100"
       />
-      <div class="icons">
+      <div class="icons" >
         <!-- fontawesome icons -->
         <i class="fas fa-3x fa-step-backward" id="previous"></i>
         <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
         <i class="fas fa-3x fa-step-forward" id="next"></i>
       </div>
 
-      <div class="songInfo">
+      <div class="songInfo" >
         <img src="playing.gif" width="42px" alt="" id="gif" />
-        <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
+        <span id="masterSongName">ឱក្រមុំមុំបងអើយ</span>
       </div>
     </div>
+
+
+    <footer>
+      <p>&copy; 2024 SornRomy. All rights reserved.</p>
+    </footer>
+
+
     <script src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/26504e4a1f.js"
